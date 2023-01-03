@@ -10,7 +10,9 @@ export default function App() {
       {/* Whatever we have here in the container it will be below the other content
           We can look at this example:
           https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */}
-     <div className="container">
+     <div className="container" onClick={() => {
+      console.log('Clicked on the container');
+     }}>
       <button onClick={() => setIsHidden(!isHidden)}>
         {isHidden ? 'Show Modal' : 'Hide Modal'}
       </button>
