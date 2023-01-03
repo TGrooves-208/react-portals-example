@@ -1,38 +1,34 @@
 .App {
-  text-align: center;
+  padding-top: 20%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Color scheme generated from https://0to255.com/ */
+
+.container {
+  position: relative;
+  z-index: 0;
+  background-color: #ebe3fb;
+  height: 100px;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.other {
+  position: relative;
+  z-index: 1;
+  background-color: #d6c5f7;
+  height: 100px;
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.modal {
+  position: fixed;
+  z-index: 2;
+  background-color: #c0a7f3;
+  width: 90vw;
+  height: 75vh;
+  padding: 10px;
+  top: 5vw;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

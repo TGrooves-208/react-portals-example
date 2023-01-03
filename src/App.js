@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+// This is meant to be used inline
+import { createPortal } from 'react-dom';
 import './App.css';
 
-function App() {
+export default function App() {
+  const [isHidden, setIsHidden] = useState(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Whatever we have here in the container it will be below the other content
+          We can look at this example:
+          https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context */}
+     <div className="container">
+      <button onClick={() => setIsHidden(!isHidden)}>
+        {isHidden ? 'Show Modal' : 'Hide Modal'}
+      </button>
+      {isHidden || <Modal />}
+     </div>
+
+     <p className="other"> Other Content</p>
     </div>
   );
 }
 
-export default App;
+function Modal() {
+  // We then wrap our element with our portal
+  // Then we want to append our portal where needed as the second parameter
+  return createPortal(<p className="modal">Modal</p>, document.getElementById('modal-root'));
+}
+
